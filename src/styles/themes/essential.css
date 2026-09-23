@@ -1,0 +1,51 @@
+/*
+ * ESSENTIAL: calm, practical, approachable.
+ * Base structure and proportions, Figtree, slightly tighter radii, flatter
+ * surfaces, quiet labels, a light footer. Comfortable, not compact.
+ */
+
+[data-theme='essential'] {
+  --font-sans: 'Figtree', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --text-display: clamp(32px, 4vw + 8px, 56px);
+  --text-heading: clamp(26px, 2vw + 14px, 30px);
+  --tracking-heading: -0.015em;
+  --tracking-display: -0.025em;
+
+  --radius-tile: 10px;
+  --radius-card: 12px;
+  --radius-media: 12px;
+
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-2: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Spacing: the shared rhythm, a touch tighter than Modern and Premium */
+[data-theme='essential'] .section { padding-block: 56px; }
+[data-theme='essential'] .band { padding-block: 44px; }
+@media (min-width: 1024px) {
+  [data-theme='essential'] .section { padding-block: 80px; }
+  [data-theme='essential'] .band { padding-block: 64px; }
+}
+
+/* Headings */
+[data-theme='essential'] .sh__title { font-weight: 700; }
+[data-theme='essential'] .hero__title { font-weight: 700; }
+
+/* Cards: flat, quiet labels, no image zoom */
+[data-theme='essential'] .pcard__type { text-transform: none; letter-spacing: 0; font-size: 13px; font-weight: 600; color: var(--color-text-muted); }
+[data-theme='essential'] .pcard__type::before { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  [data-theme='essential'] .pcard:hover .pcard__slide img { transform: none; }
+}
+
+/* Brand, the functional way: small labels, metadata, icons, quiet dividers */
+[data-theme='essential'] .sh__meta { font-size: 12px; letter-spacing: 0.08em; }
+[data-theme='essential'] .pcard__type { color: var(--color-accent-ink); }
+[data-theme='essential'] .pcard__foot { border-top-color: var(--color-accent-soft); }
+[data-theme='essential'] .pcard__price strong { color: var(--color-text); }
+[data-theme='essential'] .facts dd { color: var(--color-text); }
+[data-theme='essential'] .card--info .icon-well,
+[data-theme='essential'] .tiles-grid--services .icon-well { background: var(--color-accent-subtle); }
+[data-theme='essential'] .meta-pill { background: var(--color-surface); border-color: var(--color-accent-soft); }
+[data-theme='essential'] .location__hint { color: var(--color-accent-ink); }

@@ -1,0 +1,129 @@
+/*
+ * Design tokens. This file is the theme boundary: a future theme is another
+ * [data-theme="…"] block that redefines these variables. Components consume
+ * only the semantic tokens at the bottom, never raw values.
+ * Source: DESIGN.md (white gallery canvas, one orange accent, 4px grid).
+ */
+
+:root,
+[data-theme='default'] {
+  /* Palette */
+  /* Rausch, from DESIGN.md: the single accent. Fills use #ff385c, text on light uses the 600 shade for contrast. */
+  --color-rausch: #ff385c;
+  --color-rausch-600: #e00b41;
+  --brand-400: var(--color-rausch); /* marks, dots, indicators */
+  --brand-500: var(--color-rausch); /* actions, selected states */
+  --brand-600: var(--color-rausch-600); /* hover, pressed, accent text */
+  --brand-100: #ffe8ec; /* borders on tinted surfaces */
+  --brand-50: #fff3f5;  /* icon wells, selected backgrounds */
+  --color-hof: #222222;
+  --color-foggy: #6a6a6a;
+  --color-grey-500: #c1c1c1;
+  --color-bebe: #ebebeb;
+  --color-deco: #dddddd;
+  --color-faint: #f7f7f7;
+  --color-white: #ffffff;
+
+  /* Semantic colour */
+  --color-accent: var(--brand-500);
+  --color-accent-decor: var(--brand-400);
+  --color-accent-strong: var(--brand-600);
+  --color-accent-soft: var(--brand-100);
+  --color-accent-subtle: var(--brand-50);
+  --color-accent-ink: var(--brand-600);
+  --color-ink-dark: #171717;
+  --color-ink-dark-2: #232323;
+  --color-text: var(--color-hof);
+  --color-text-muted: var(--color-foggy);
+  --color-text-disabled: var(--color-grey-500);
+  --color-page: var(--color-white);
+  --color-canvas: var(--color-faint);
+  --color-surface: var(--color-white);
+  --color-line: var(--color-bebe);
+  --color-line-strong: #c1c1c1;
+  --color-inverse: var(--color-hof);
+  --color-inverse-hover: #000000;
+  --color-on-inverse: var(--color-white);
+  --color-placeholder: var(--color-deco);
+  --color-error: #c13515;
+  --color-overlay: rgba(0, 0, 0, 0.4);
+
+  /* Typography */
+  --font-sans: 'DM Sans', 'Airbnb Cereal VF', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: var(--font-sans); /* headings; themes may pair a different face */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --text-caption: 12px;
+  --text-body: 14px;
+  --text-ui: 16px;
+  --text-lede: 18px;
+  --text-subheading: 20px;
+  --text-heading-sm: 22px;
+  --text-heading: clamp(26px, 2.4vw + 14px, 32px);
+  --text-display: clamp(34px, 4.4vw + 8px, 60px);
+
+  --tracking-heading: -0.02em;
+  --tracking-display: -0.035em;
+
+  /* Spacing (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  --section-gap: 48px;
+  --element-gap: 12px;
+
+  /* Radius */
+  --radius-input: 8px;
+  --radius-button: 8px;
+  --radius-tile: 12px;
+  --radius-card: 14px;
+  --radius-media: 14px;
+  --radius-sheet: 20px;
+  --radius-pill: 9999px;
+
+  /* Elevation (used only by overlays and the search-like surfaces) */
+  --shadow-subtle: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.08);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.05); /* resting cards */
+  --shadow-2: 0 2px 6px rgba(0, 0, 0, 0.05), 0 10px 30px rgba(0, 0, 0, 0.09); /* hover, floating */
+  --shadow-3: 0 12px 40px rgba(0, 0, 0, 0.2); /* modal overlays */
+  --shadow-panel: var(--shadow-2);
+  --shadow-menu: var(--shadow-2);
+  --shadow-modal: var(--shadow-3);
+
+  /* Layout */
+  --page-max: 1240px;
+  --pad: 24px;
+  --header-h: 64px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur-press: 160ms;
+  --dur-fast: 180ms;
+  --dur-base: 260ms;
+}
+
+@media (min-width: 640px) {
+  :root { --pad: 40px; }
+}
+@media (min-width: 900px) {
+  :root { --header-h: 80px; }
+}
+@media (min-width: 1024px) {
+  :root { --pad: 56px; }
+}
+@media (min-width: 1280px) {
+  :root { --pad: 80px; }
+}

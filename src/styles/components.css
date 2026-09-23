@@ -1,0 +1,130 @@
+/* Shared primitives: buttons, chips, badges, images, availability, brand. */
+
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+/* Buttons. One height/radius/type scale; hierarchy comes from colour only:
+   primary = brand orange, secondary = outlined neutral, text = tertiary. */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 48px; padding: 0 22px;
+  border: 1px solid transparent; border-radius: var(--radius-button);
+  font-size: var(--text-ui); font-weight: var(--weight-semibold); line-height: 1; white-space: nowrap; letter-spacing: -0.005em;
+  transition: background-color var(--dur-press) ease, border-color var(--dur-press) ease,
+    color var(--dur-press) ease, box-shadow var(--dur-press) ease, transform var(--dur-press) var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active:not(:disabled) { transform: scale(0.97); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn--sm { height: 40px; padding: 0 16px; font-size: var(--text-body); }
+.btn--block { width: 100%; }
+.btn svg { flex: none; }
+
+.btn--primary { background: var(--color-accent); color: #fff; }
+.btn--secondary { background: var(--color-surface); border-color: var(--color-line-strong); color: var(--color-text); font-weight: var(--weight-medium); }
+.btn--soft { background: var(--color-canvas); border-color: var(--color-line); color: var(--color-text); font-weight: var(--weight-medium); }
+.btn--light { background: var(--color-surface); border-color: var(--color-line); color: var(--color-text); font-weight: var(--weight-medium); box-shadow: var(--shadow-2); }
+.btn--text { height: auto; padding: 4px 2px; border-radius: 4px; background: none; color: var(--color-accent-ink); font-weight: var(--weight-semibold); }
+@media (hover: hover) and (pointer: fine) {
+  .btn--primary:hover:not(:disabled) { background: var(--color-accent-strong); }
+  .btn--soft:hover:not(:disabled) { background: var(--color-line); }
+  .btn--secondary:hover:not(:disabled) { border-color: var(--color-text); background: var(--color-surface); }
+  .btn--light:hover:not(:disabled) { background: var(--color-canvas); }
+  .btn--text:hover:not(:disabled) { text-decoration: underline; text-underline-offset: 3px; }
+}
+
+.link-btn { color: var(--color-accent-ink); text-decoration: underline; font-weight: var(--weight-semibold); text-underline-offset: 2px; }
+
+.icon-btn {
+  display: inline-grid; place-items: center; width: 40px; height: 40px;
+  border-radius: var(--radius-pill); background: var(--color-canvas); color: var(--color-text);
+  transition: background-color var(--dur-press) ease, color var(--dur-press) ease, transform var(--dur-press) var(--ease-out), opacity var(--dur-press) ease;
+}
+.icon-btn:active:not(:disabled) { transform: scale(0.94); }
+.icon-btn:disabled { opacity: 0.3; cursor: default; }
+.icon-btn--plain { background: transparent; }
+.icon-btn--raised { width: 36px; height: 36px; background: var(--color-surface); box-shadow: var(--shadow-1); border: 1px solid var(--color-line); }
+@media (hover: hover) and (pointer: fine) {
+  .icon-btn:hover:not(:disabled) { background: var(--color-line); }
+  .icon-btn--raised:hover:not(:disabled) { background: var(--color-accent-subtle); color: var(--color-accent-ink); border-color: var(--color-accent-soft); }
+}
+
+/* Section heading: a full-height vertical accent bar beside metadata + heading (see SectionHeading.jsx) */
+.sh { align-self: start; display: flex; flex-direction: column; gap: 8px; padding-left: 16px; border-left: 3px solid var(--color-accent); }
+.sh__meta { font-size: 12px; font-weight: var(--weight-semibold); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.3; color: var(--color-accent-ink); }
+.sh__title { font-size: var(--text-heading); font-weight: var(--weight-bold); letter-spacing: var(--tracking-heading); line-height: 1.15; text-wrap: balance; }
+.sh__desc { max-width: 40rem; color: var(--color-text-muted); line-height: 1.55; text-wrap: pretty; }
+.sh--sm .sh__title { font-size: var(--text-heading-sm); font-weight: var(--weight-semibold); }
+.sh--sm { gap: 6px; border-left-width: 3px; }
+
+/* Pills, chips, badges */
+.pill {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px;
+  border: 1px solid var(--color-line); border-radius: var(--radius-pill);
+  font-size: 13px; font-weight: var(--weight-medium); background: var(--color-surface);
+}
+.pill svg { color: var(--color-accent); }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px;
+  border-radius: var(--radius-pill); background: var(--color-surface);
+  font-size: var(--text-caption); font-weight: var(--weight-semibold); line-height: 1.2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.14);
+}
+.badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent-decor); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  height: 40px; padding: 0 16px; border: 1px solid var(--color-line-strong); border-radius: var(--radius-pill);
+  background: var(--color-surface); font-size: var(--text-body); font-weight: var(--weight-medium); color: var(--color-text);
+  transition: background-color var(--dur-press) ease, border-color var(--dur-press) ease, color var(--dur-press) ease, transform var(--dur-press) var(--ease-out);
+}
+.chip:active { transform: scale(0.96); }
+.chip[aria-pressed='true'] { background: var(--color-accent-subtle); border-color: var(--color-accent); color: var(--color-accent-ink); box-shadow: inset 0 0 0 1px var(--color-accent); }
+@media (hover: hover) and (pointer: fine) {
+  .chip[aria-pressed='false']:hover { border-color: var(--color-text); }
+}
+
+/* Images */
+.pic {
+  display: block; width: 100%; height: 100%; object-fit: cover;
+  background: var(--color-placeholder);
+  opacity: 0; transition: opacity 320ms var(--ease-out);
+}
+.pic.is-loaded { opacity: 1; }
+.pic--failed { opacity: 1; background: var(--color-placeholder); }
+
+/* Availability: a quiet pill. The dot carries the state, the words always say it. */
+.avail { display: inline-flex; align-items: center; gap: 8px; padding: 4px 10px 4px 9px; border: 1px solid var(--color-line); border-radius: var(--radius-pill); background: var(--color-surface); font-size: 13px; font-weight: var(--weight-medium); line-height: 1.3; color: var(--color-text); }
+.avail__dot { flex: none; width: 8px; height: 8px; border-radius: 50%; }
+.avail--open .avail__dot { background: var(--color-accent); }
+.avail--limited .avail__dot { background: var(--color-surface); box-shadow: inset 0 0 0 2px var(--color-accent); }
+.avail--closed { color: var(--color-text-muted); }
+.avail--closed .avail__dot { background: var(--color-grey-500); }
+.avail__detail { font-weight: var(--weight-regular); color: var(--color-text-muted); }
+
+/* Brand */
+.brand { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+.brand__name { font-size: 18px; font-weight: var(--weight-bold); letter-spacing: var(--tracking-heading); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.logo-mark {
+  flex: none; display: inline-grid; place-items: center; border-radius: 10px;
+  background: var(--color-accent); color: #fff; font-weight: var(--weight-bold); letter-spacing: 0.02em;
+}
+.logo-mark--img { background: none; object-fit: contain; border-radius: 10px; }
+
+/* Typography helpers */
+.section-sub { margin-top: 8px; color: var(--color-text-muted); font-size: var(--text-ui); }
+.prose { font-size: var(--text-ui); line-height: 1.65; max-width: 46rem; text-wrap: pretty; }
+.prose + .prose { margin-top: 16px; }
+.num { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+
+/* Dev-only plan preview */
+.devbar { position: fixed; left: 12px; bottom: 96px; z-index: 90; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.devplan {
+  display: flex; align-items: center; gap: 4px; padding: 4px 4px 4px 12px;
+  border-radius: var(--radius-pill); background: rgba(34, 34, 34, 0.92); color: #fff; font-size: 12px;
+  box-shadow: var(--shadow-2);
+}
+.devplan span { opacity: 0.7; margin-right: 4px; }
+.devplan button { padding: 6px 10px; border-radius: var(--radius-pill); font-size: 12px; font-weight: var(--weight-semibold); color: #fff; opacity: 0.7; }
+.devplan button[aria-pressed='true'] { background: #fff; color: var(--color-hof); opacity: 1; }
+@media (min-width: 1024px) { .devbar { bottom: 12px; } }

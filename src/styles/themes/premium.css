@@ -1,0 +1,114 @@
+/*
+ * PREMIUM: refined, spacious, sophisticated.
+ * Base structure and proportions, Instrument Serif headings over Instrument
+ * Sans, restrained radii, hairline borders and near-flat shadows on real card
+ * containers, ink primary buttons, small-caps labels, slow image motion.
+ * The hero stacks copy over one wide photograph; nothing else is rearranged.
+ */
+
+[data-theme='premium'] {
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+
+  --text-display: clamp(40px, 4.6vw + 10px, 62px);
+  --text-heading: clamp(32px, 2.6vw + 18px, 42px);
+  --text-heading-sm: 26px;
+  --tracking-heading: -0.015em;
+  --tracking-display: -0.025em;
+
+  --radius-button: 4px;
+  --radius-input: 4px;
+  --radius-tile: 6px;
+  --radius-card: 8px;
+  --radius-media: 6px;
+  --radius-sheet: 12px;
+
+  --color-line: #e6e6e6;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.03), 0 2px 8px rgba(0, 0, 0, 0.03);
+  --shadow-2: 0 4px 10px rgba(0, 0, 0, 0.04), 0 14px 34px rgba(0, 0, 0, 0.07);
+
+  --dur-base: 360ms;
+}
+
+/* Serif display at regular weight (sizes nudged up: the face runs small) */
+[data-theme='premium'] :is(.hero__title, .sh__title, .pcard__title, .psummary__title, .room__label, .success__title, .sheet__title, .brand__name) {
+  font-family: var(--font-display); font-weight: 400;
+}
+[data-theme='premium'] .pcard__title { font-size: 23px; letter-spacing: -0.01em; }
+[data-theme='premium'] .room__label { font-size: 24px; }
+[data-theme='premium'] .psummary__title { font-size: clamp(36px, 3.4vw + 14px, 52px); line-height: 1.05; }
+[data-theme='premium'] .sheet__title { font-size: 20px; }
+[data-theme='premium'] .brand__name { font-size: 22px; letter-spacing: -0.01em; }
+[data-theme='premium'] .logo-mark { border-radius: 4px; }
+
+/* Buttons: same size as Base, ink primary, small-caps labels */
+[data-theme='premium'] .btn { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+[data-theme='premium'] .btn--sm { font-size: 12px; }
+[data-theme='premium'] .btn--secondary { border-color: #b8b8b8; }
+[data-theme='premium'] .nav-link { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+
+/* Spacing: the most breathing room of the three, still close to Base */
+[data-theme='premium'] .section { padding-block: 72px; }
+[data-theme='premium'] .band { padding-block: 56px; }
+@media (min-width: 1024px) {
+  [data-theme='premium'] .section { padding-block: 112px; }
+  [data-theme='premium'] .band { padding-block: 80px; }
+}
+
+/* Headings: a quiet small-caps label in the brand ink */
+[data-theme='premium'] .sh__meta { font-size: 11px; letter-spacing: 0.2em; }
+
+/* Hero: controlled heading, short copy, actions, then three rotating photographs (25% / 50% / 25%) */
+[data-theme='premium'] { --text-display: clamp(38px, 3.6vw + 12px, 54px); }
+[data-theme='premium'] .hero__inner { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+[data-theme='premium'] .hero__copy { align-items: center; }
+[data-theme='premium'] .hero__cta { justify-content: center; }
+[data-theme='premium'] .hero__title { max-width: 26ch; line-height: 1.06; }
+[data-theme='premium'] .hero__lede { max-width: 34rem; }
+[data-theme='premium'] .hero__eyebrow { padding: 0; border: 0; background: none; box-shadow: none; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-ink); }
+[data-theme='premium'] .hero__eyebrow svg { display: none; }
+[data-theme='premium'] .hero__mosaic--rotating { display: grid; grid-template-columns: 1fr 2fr 1fr; grid-template-rows: 1fr; gap: 12px; height: clamp(220px, 34vw, 400px); }
+[data-theme='premium'] .hero__mosaic--rotating .hero__tile { grid-row: 1; }
+[data-theme='premium'] .hero__layer { position: absolute; inset: 0; opacity: 0; transition: opacity 2200ms ease; }
+[data-theme='premium'] .hero__layer.is-front { opacity: 1; }
+[data-theme='premium'] .hero__tile--left .hero__tile-label span,
+[data-theme='premium'] .hero__tile--right .hero__tile-label span { display: none; }
+[data-theme='premium'] .hero__tile-label::before { content: ''; display: inline-block; width: 5px; height: 5px; margin-right: 7px; border-radius: 50%; background: var(--color-accent); vertical-align: 1px; }
+@media (max-width: 639px) {
+  [data-theme='premium'] .hero__tile-label { left: 6px; bottom: 6px; max-width: calc(100% - 12px); padding: 5px 8px; font-size: 10px; }
+  [data-theme='premium'] .hero__tile--left .hero__tile-label,
+  [data-theme='premium'] .hero__tile--right .hero__tile-label { display: none; }
+}
+@media (min-width: 1024px) {
+  [data-theme='premium'] .hero { padding-block: 56px 80px; }
+}
+
+/* Cards: still real containers; hairline border, near-flat shadow, refined labels */
+[data-theme='premium'] .pcard__type { font-size: 11px; letter-spacing: 0.16em; color: var(--color-text-muted); }
+[data-theme='premium'] .pcard__type::before { display: none; }
+[data-theme='premium'] .pcard__slide img,
+[data-theme='premium'] .hero__tile img { transition-duration: 1200ms; }
+[data-theme='premium'] .acarousel__slide { transition-duration: 1600ms; }
+[data-theme='premium'] .badge { border-radius: 4px; font-size: 11px; letter-spacing: 0.06em; }
+[data-theme='premium'] .card:hover,
+[data-theme='premium'] .room:hover { border-color: #cfcfcf; }
+[data-theme='premium'] .icon-well { border-radius: 8px; }
+
+/* FAQ keeps its cards, with quieter icons */
+[data-theme='premium'] .faq__icon { background: none; border: 1px solid var(--color-line); }
+[data-theme='premium'] .faq__item[open] .faq__icon { background: var(--color-accent); border-color: var(--color-accent); }
+[data-theme='premium'] .chip { border-radius: 4px; }
+
+/* Footer: Base black, serif wordmark */
+[data-theme='premium'] .site-footer .brand__name { font-size: 26px; }
+[data-theme='premium'] .site-footer__head { font-size: 11px; letter-spacing: 0.2em; }
+
+/* Brand, restrained: fine icons, a few coloured values, quiet dividers, neutral pills with a brand icon */
+[data-theme='premium'] .pcard__type { color: var(--color-accent-ink); }
+[data-theme='premium'] .pcard__price strong { color: var(--color-text); }
+[data-theme='premium'] .pmod__row--owner,
+[data-theme='premium'] .facts__row { border-top-color: var(--color-accent-soft); }
+[data-theme='premium'] .icon-well--brand { background: var(--color-surface); border-color: var(--color-accent-soft); }
+[data-theme='premium'] .meta-pill { background: var(--color-surface); }
+[data-theme='premium'] .tag--type { background: none; border-color: var(--color-accent-soft); }
+[data-theme='premium'] .location__hint { color: var(--color-accent-ink); }

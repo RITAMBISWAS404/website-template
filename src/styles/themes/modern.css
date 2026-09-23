@@ -1,0 +1,89 @@
+/*
+ * MODERN: contemporary, visual, confident.
+ * Base structure and proportions, Plus Jakarta Sans with firmer weights,
+ * softer radii, pill labels, inset section panels, a gentle lift on hover.
+ * Controlled scale: character comes from weight and surface, not size.
+ */
+
+[data-theme='modern'] {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --text-display: clamp(36px, 4.6vw + 8px, 64px);
+  --text-heading: clamp(28px, 2.4vw + 16px, 38px);
+  --text-heading-sm: 23px;
+  --tracking-heading: -0.03em;
+  --tracking-display: -0.045em;
+
+  --radius-button: 12px;
+  --radius-input: 12px;
+  --radius-tile: 14px;
+  --radius-card: 18px;
+  --radius-media: 20px;
+  --radius-sheet: 24px;
+
+  --shadow-1: 0 2px 4px rgba(0, 0, 0, 0.03), 0 8px 24px rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.04), 0 16px 40px rgba(0, 0, 0, 0.11);
+}
+
+[data-theme='modern'] .btn { font-weight: 700; }
+[data-theme='modern'] .brand__name,
+[data-theme='modern'] .hero__title,
+[data-theme='modern'] .sh__title,
+[data-theme='modern'] .psummary__title { font-weight: 800; }
+[data-theme='modern'] .logo-mark { border-radius: 10px; }
+
+/* Spacing: slightly more generous than Essential */
+[data-theme='modern'] .section { padding-block: 72px; }
+[data-theme='modern'] .band { padding-block: 52px; }
+@media (min-width: 1024px) {
+  [data-theme='modern'] .section { padding-block: 104px; }
+  [data-theme='modern'] .band { padding-block: 76px; }
+}
+
+/* Off-white sections become gently inset panels */
+[data-theme='modern'] .section--canvas,
+[data-theme='modern'] .band--canvas { margin-inline: 12px; border-radius: 24px; }
+@media (min-width: 1024px) {
+  [data-theme='modern'] .section--canvas,
+  [data-theme='modern'] .band--canvas { margin-inline: 24px; border-radius: 32px; }
+}
+
+/* Headings: a tinted pill label */
+[data-theme='modern'] .sh { gap: 12px; }
+[data-theme='modern'] .sh__meta { align-self: flex-start; padding: 5px 12px; border-radius: 9999px; background: var(--color-accent-subtle); border: 1px solid var(--color-accent-soft); letter-spacing: 0.06em; }
+[data-theme='modern'] .hero__eyebrow { background: var(--color-accent-subtle); border-color: var(--color-accent-soft); color: var(--color-accent-ink); font-weight: 700; }
+
+/* Cards: softer surface, chip label, gentle lift */
+[data-theme='modern'] .pcard { border-color: transparent; }
+[data-theme='modern'] .pcard__type { align-self: flex-start; padding: 4px 10px; border-radius: 9999px; background: var(--color-accent-subtle); }
+[data-theme='modern'] .pcard__type::before { display: none; }
+[data-theme='modern'] .pcard__title { font-weight: 700; letter-spacing: -0.025em; }
+[data-theme='modern'] .pcard__price strong { font-weight: 800; letter-spacing: -0.035em; }
+[data-theme='modern'] .pcard { transition: box-shadow 300ms var(--ease-out), transform 300ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) {
+  [data-theme='modern'] .pcard:hover { transform: translateY(-3px); border-color: transparent; }
+}
+[data-theme='modern'] .room,
+[data-theme='modern'] .card,
+[data-theme='modern'] .pmod,
+[data-theme='modern'] .faq__item,
+[data-theme='modern'] .location { border-color: transparent; }
+[data-theme='modern'] .icon-well { border-radius: 12px; }
+[data-theme='modern'] .room__rent strong,
+[data-theme='modern'] .pmod__rent strong { font-weight: 800; letter-spacing: -0.045em; }
+
+
+/* Brand, expressive but controlled: stronger icons, tinted pills, coloured values, hover states */
+[data-theme='modern'] .pcard__price strong { color: var(--color-accent-ink); }
+[data-theme='modern'] .pcard .avail { background: var(--color-accent-subtle); border-color: var(--color-accent-soft); }
+[data-theme='modern'] .icon-well--brand { background: var(--color-accent-soft); border-color: transparent; }
+[data-theme='modern'] .meta-pill { background: var(--color-accent-subtle); border-color: var(--color-accent-soft); }
+[data-theme='modern'] .room__deposit { border-top-color: var(--color-accent-soft); }
+[data-theme='modern'] .pmod__row--owner { border-top-color: var(--color-accent-soft); }
+[data-theme='modern'] .hero__tile-label::before { content: ''; display: inline-block; width: 6px; height: 6px; margin-right: 7px; border-radius: 50%; background: var(--color-accent); vertical-align: 1px; }
+[data-theme='modern'] .facts dd { color: var(--color-accent-ink); }
+[data-theme='modern'] .footer-contact svg { color: var(--color-accent); }
+@media (hover: hover) and (pointer: fine) {
+  [data-theme='modern'] .pcard:hover .pcard__title { color: var(--color-accent-ink); }
+  [data-theme='modern'] .nav-link:hover { color: var(--color-accent-ink); }
+}

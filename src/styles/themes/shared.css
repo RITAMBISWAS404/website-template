@@ -1,0 +1,42 @@
+/*
+ * SHARED THEME BASELINE (Essential, Modern, Premium; never Base).
+ * Every theme starts from the approved Base structure and proportions:
+ * same container, gutters, section order, hero mosaic, 4:3 property images,
+ * button and pill heights, About two-column layout, gallery and card anatomy.
+ * Theme files add character (font, radius, surface, spacing emphasis) on top
+ * and must not rearrange or rescale structure.
+ */
+
+/* Uniform property cards: same anatomy, one line per text row, reserved rows */
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) {
+  --card-media-ratio: 4 / 3;
+}
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .pcard__media { aspect-ratio: var(--card-media-ratio); }
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .pcard__title,
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .pcard__loc,
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .pcard__sharing {
+  min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .pcard__loc { display: flex; }
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .pcard__loc svg { flex: none; }
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .pcard__top { min-height: 26px; }
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .pcard__body { flex: 1; }
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .pcard__foot { margin-top: auto; padding-top: 12px; }
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .pcard__loc + .pcard__foot { margin-top: 12px; }
+
+/* Consistent pill and icon proportions */
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .meta-pill { height: 26px; font-size: 12.5px; }
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .icon-well { width: 40px; height: 40px; }
+
+/* Readable body rhythm */
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .prose { line-height: 1.7; }
+
+/* The first detail band (gallery + summary) keeps Base's tight top padding */
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .band:first-child { padding-block: 8px 48px; }
+@media (min-width: 1024px) {
+  :is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .band:first-child { padding-block: 16px 64px; }
+}
+
+/* Headings: no vertical accent line in the themes. Each theme styles the label instead. */
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .sh { padding-left: 0; border-left: 0; }
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .sh__meta { color: var(--color-accent-ink); }
