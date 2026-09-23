@@ -21,8 +21,8 @@ const readPlanOverride = () => {
   }
 };
 
+/** `?theme=` is honoured in every build (dev and production); an explicit URL value beats the stored one. */
 const readThemeOverride = () => {
-  if (!import.meta.env.DEV) return null;
   try {
     const q = new URLSearchParams(window.location.search).get('theme');
     const fromUrl = q === 'base' ? 'default' : q;
