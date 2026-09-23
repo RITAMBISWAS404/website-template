@@ -1,7 +1,6 @@
 /* Property detail page: surface bands, individual white cards, integrated actions. */
 
 .detail { background: var(--color-page); }
-@media (max-width: 767px) { .detail { padding-bottom: 88px; } }
 
 /* Bands alternate white / off-white. Cards are always white. */
 .band { padding-block: 48px; }

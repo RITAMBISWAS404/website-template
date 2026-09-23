@@ -59,7 +59,7 @@
 /* Headings: a quiet small-caps label in the brand ink */
 [data-theme='premium'] .sh__meta { letter-spacing: 0.2em; }
 
-/* Hero: controlled heading, short copy, actions, then three rotating photographs (25% / 50% / 25%) */
+/* Hero: controlled heading, short copy, actions, then a slow continuous photo strip */
 [data-theme='premium'] .hero__inner { grid-template-columns: 1fr; gap: 36px; text-align: center; }
 [data-theme='premium'] .hero__copy { align-items: center; }
 [data-theme='premium'] .hero__cta { justify-content: center; }
@@ -67,17 +67,30 @@
 [data-theme='premium'] .hero__lede { max-width: 34rem; }
 [data-theme='premium'] .hero__eyebrow { padding: 0; border: 0; background: none; box-shadow: none; font-size: var(--fs-eyebrow); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-ink); }
 [data-theme='premium'] .hero__eyebrow svg { display: none; }
-[data-theme='premium'] .hero__mosaic--rotating { display: grid; grid-template-columns: 1fr 2fr 1fr; grid-template-rows: 1fr; gap: 12px; height: clamp(220px, 34vw, 400px); }
-[data-theme='premium'] .hero__mosaic--rotating .hero__tile { grid-row: 1; }
-[data-theme='premium'] .hero__layer { position: absolute; inset: 0; opacity: 0; transition: opacity 2200ms ease; }
-[data-theme='premium'] .hero__layer.is-front { opacity: 1; }
-[data-theme='premium'] .hero__tile--left .hero__tile-label span,
-[data-theme='premium'] .hero__tile--right .hero__tile-label span { display: none; }
+/* Hero gallery: slow continuous strip. 16:9 cards on tablet/desktop, 1:1 on phones. The list is doubled in
+   the markup; the track travels exactly one copy (-50%), so the loop is seamless. Full-bleed, clipped by .hero. */
+[data-theme='premium'] .hero { overflow-x: clip; }
+[data-theme='premium'] .hero__strip { margin-inline: calc(50% - 50vw); overflow: hidden; --gap: 12px; --card: 76vw; }
+[data-theme='premium'] .hero__strip-track {
+  display: flex; width: max-content; will-change: transform;
+  animation: hero-strip calc(var(--n) * 24s) linear infinite;
+}
+[data-theme='premium'] .hero__strip:hover .hero__strip-track { animation-play-state: paused; }
+[data-theme='premium'] .hero__strip-item { flex: none; width: var(--card); aspect-ratio: 1 / 1; margin-right: var(--gap); box-shadow: none; }
+[data-theme='premium'] .hero__strip-item .pic { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 640px) {
+  [data-theme='premium'] .hero__strip { --card: clamp(300px, 32vw, 500px); --gap: 16px; }
+  [data-theme='premium'] .hero__strip-item { aspect-ratio: 16 / 9; }
+}
+@keyframes hero-strip { to { transform: translate3d(-50%, 0, 0); } }
+@media (prefers-reduced-motion: reduce) {
+  [data-theme='premium'] .hero__strip { overflow-x: auto; scrollbar-width: none; }
+  [data-theme='premium'] .hero__strip-track { animation: none; }
+  [data-theme='premium'] .hero__strip-item[aria-hidden='true'] { display: none; }
+}
 [data-theme='premium'] .hero__tile-label::before { content: ''; display: inline-block; width: 5px; height: 5px; margin-right: 7px; border-radius: 50%; background: var(--color-accent); vertical-align: 1px; }
 @media (max-width: 639px) {
-  [data-theme='premium'] .hero__tile-label { left: 6px; bottom: 6px; max-width: calc(100% - 12px); padding: 5px 8px; font-size: 10px; }
-  [data-theme='premium'] .hero__tile--left .hero__tile-label,
-  [data-theme='premium'] .hero__tile--right .hero__tile-label { display: none; }
+  [data-theme='premium'] .hero__tile-label { left: 8px; bottom: 8px; max-width: calc(100% - 16px); padding: 5px 8px; font-size: 11px; }
 }
 @media (min-width: 1024px) {
   [data-theme='premium'] .hero { padding-block: 56px 80px; }
