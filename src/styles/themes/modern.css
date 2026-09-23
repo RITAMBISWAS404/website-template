@@ -8,9 +8,10 @@
 [data-theme='modern'] {
   --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  --text-display: clamp(36px, 4.6vw + 8px, 64px);
-  --text-heading: clamp(28px, 2.4vw + 16px, 38px);
-  --text-heading-sm: 23px;
+  --fs-display: clamp(34px, 4.2vw + 8px, 60px);
+  --fs-h2: clamp(25px, 1.5vw + 18px, 36px);
+  --fs-h1: clamp(28px, 2.2vw + 15px, 38px);
+  --fs-h3: clamp(21px, 0.5vw + 18.5px, 23px);
   --tracking-heading: -0.03em;
   --tracking-display: -0.045em;
 

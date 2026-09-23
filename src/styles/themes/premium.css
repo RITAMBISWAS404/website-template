@@ -10,9 +10,10 @@
   --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
 
-  --text-display: clamp(40px, 4.6vw + 10px, 62px);
-  --text-heading: clamp(32px, 2.6vw + 18px, 42px);
-  --text-heading-sm: 26px;
+  --fs-display: clamp(34px, 3.6vw + 10px, 54px);
+  --fs-h2: clamp(26px, 1.8vw + 19px, 38px);
+  --fs-h1: clamp(30px, 2.6vw + 18px, 46px);
+  --fs-h3: clamp(22px, 0.6vw + 19px, 26px);
   --tracking-heading: -0.015em;
   --tracking-display: -0.025em;
 
@@ -34,18 +35,18 @@
 [data-theme='premium'] :is(.hero__title, .sh__title, .pcard__title, .psummary__title, .room__label, .success__title, .sheet__title, .brand__name) {
   font-family: var(--font-display); font-weight: 400;
 }
-[data-theme='premium'] .pcard__title { font-size: 23px; letter-spacing: -0.01em; }
-[data-theme='premium'] .room__label { font-size: 24px; }
-[data-theme='premium'] .psummary__title { font-size: clamp(36px, 3.4vw + 14px, 52px); line-height: 1.05; }
-[data-theme='premium'] .sheet__title { font-size: 20px; }
-[data-theme='premium'] .brand__name { font-size: 22px; letter-spacing: -0.01em; }
+[data-theme='premium'] .pcard__title { font-size: clamp(20px, 0.6vw + 17.5px, 23px); letter-spacing: -0.01em; }
+[data-theme='premium'] .room__label { font-size: var(--fs-h3); }
+[data-theme='premium'] .psummary__title { line-height: 1.08; }
+[data-theme='premium'] .sheet__title { font-size: var(--fs-h3); }
+[data-theme='premium'] .brand__name { font-size: var(--fs-h3); letter-spacing: -0.01em; }
 [data-theme='premium'] .logo-mark { border-radius: 4px; }
 
 /* Buttons: same size as Base, ink primary, small-caps labels */
-[data-theme='premium'] .btn { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
-[data-theme='premium'] .btn--sm { font-size: 12px; }
+[data-theme='premium'] .btn { font-size: var(--fs-caption); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+[data-theme='premium'] .btn--sm { font-size: var(--fs-caption); }
 [data-theme='premium'] .btn--secondary { border-color: #b8b8b8; }
-[data-theme='premium'] .nav-link { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+[data-theme='premium'] .nav-link { font-size: var(--fs-caption); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
 
 /* Spacing: the most breathing room of the three, still close to Base */
 [data-theme='premium'] .section { padding-block: 72px; }
@@ -56,16 +57,15 @@
 }
 
 /* Headings: a quiet small-caps label in the brand ink */
-[data-theme='premium'] .sh__meta { font-size: 11px; letter-spacing: 0.2em; }
+[data-theme='premium'] .sh__meta { letter-spacing: 0.2em; }
 
-/* Hero: controlled heading, short copy, actions, then three rotating photographs (25% / 50% / 25%) */
-[data-theme='premium'] { --text-display: clamp(38px, 3.6vw + 12px, 54px); }
+/* Hero: controlled heading, short copy, actions, then three rotating photographs (25% / 50% / 25%) */
 [data-theme='premium'] .hero__inner { grid-template-columns: 1fr; gap: 36px; text-align: center; }
 [data-theme='premium'] .hero__copy { align-items: center; }
 [data-theme='premium'] .hero__cta { justify-content: center; }
 [data-theme='premium'] .hero__title { max-width: 26ch; line-height: 1.06; }
 [data-theme='premium'] .hero__lede { max-width: 34rem; }
-[data-theme='premium'] .hero__eyebrow { padding: 0; border: 0; background: none; box-shadow: none; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-ink); }
+[data-theme='premium'] .hero__eyebrow { padding: 0; border: 0; background: none; box-shadow: none; font-size: var(--fs-eyebrow); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-ink); }
 [data-theme='premium'] .hero__eyebrow svg { display: none; }
 [data-theme='premium'] .hero__mosaic--rotating { display: grid; grid-template-columns: 1fr 2fr 1fr; grid-template-rows: 1fr; gap: 12px; height: clamp(220px, 34vw, 400px); }
 [data-theme='premium'] .hero__mosaic--rotating .hero__tile { grid-row: 1; }
@@ -84,12 +84,12 @@
 }
 
 /* Cards: still real containers; hairline border, near-flat shadow, refined labels */
-[data-theme='premium'] .pcard__type { font-size: 11px; letter-spacing: 0.16em; color: var(--color-text-muted); }
+[data-theme='premium'] .pcard__type { letter-spacing: 0.16em; color: var(--color-text-muted); }
 [data-theme='premium'] .pcard__type::before { display: none; }
 [data-theme='premium'] .pcard__slide img,
 [data-theme='premium'] .hero__tile img { transition-duration: 1200ms; }
 [data-theme='premium'] .acarousel__slide { transition-duration: 1600ms; }
-[data-theme='premium'] .badge { border-radius: 4px; font-size: 11px; letter-spacing: 0.06em; }
+[data-theme='premium'] .badge { border-radius: 4px; font-size: var(--fs-eyebrow); letter-spacing: 0.06em; }
 [data-theme='premium'] .card:hover,
 [data-theme='premium'] .room:hover { border-color: #cfcfcf; }
 [data-theme='premium'] .icon-well { border-radius: 8px; }
@@ -100,8 +100,8 @@
 [data-theme='premium'] .chip { border-radius: 4px; }
 
 /* Footer: Base black, serif wordmark */
-[data-theme='premium'] .site-footer .brand__name { font-size: 26px; }
-[data-theme='premium'] .site-footer__head { font-size: 11px; letter-spacing: 0.2em; }
+[data-theme='premium'] .site-footer .brand__name { font-size: var(--fs-h3); }
+[data-theme='premium'] .site-footer__head { letter-spacing: 0.2em; }
 
 /* Brand, restrained: fine icons, a few coloured values, quiet dividers, neutral pills with a brand icon */
 [data-theme='premium'] .pcard__type { color: var(--color-accent-ink); }
@@ -112,3 +112,6 @@
 [data-theme='premium'] .meta-pill { background: var(--color-surface); }
 [data-theme='premium'] .tag--type { background: none; border-color: var(--color-accent-soft); }
 [data-theme='premium'] .location__hint { color: var(--color-accent-ink); }
+
+/* Very small phones: uppercase tracking is wide; tighten so the sticky bar fits at 320px */
+@media (max-width: 389px) { [data-theme='premium'] .stickybar__actions .btn { letter-spacing: 0.02em; font-size: 12px; padding-inline: 10px; } }

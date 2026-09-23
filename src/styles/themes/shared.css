@@ -25,7 +25,7 @@
 :is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .pcard__loc + .pcard__foot { margin-top: 12px; }
 
 /* Consistent pill and icon proportions */
-:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .meta-pill { height: 26px; font-size: 12.5px; }
+:is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .meta-pill { height: 26px; font-size: var(--fs-caption); }
 :is([data-theme='essential'], [data-theme='modern'], [data-theme='premium']) .icon-well { width: 40px; height: 40px; }
 
 /* Readable body rhythm */

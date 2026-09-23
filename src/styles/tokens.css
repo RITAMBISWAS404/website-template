@@ -56,14 +56,33 @@
   --weight-semibold: 600;
   --weight-bold: 700;
 
-  --text-caption: 12px;
-  --text-body: 14px;
-  --text-ui: 16px;
-  --text-lede: 18px;
-  --text-subheading: 20px;
-  --text-heading-sm: 22px;
-  --text-heading: clamp(26px, 2.4vw + 14px, 32px);
-  --text-display: clamp(34px, 4.4vw + 8px, 60px);
+  /* Semantic type scale. One role, one token. Fluid between ~360px and ~1280px so mobile
+     stays compact and hierarchy holds. Themes override the tokens, never individual rules. */
+  --fs-display: clamp(32px, 4vw + 8px, 60px);          /* hero statement */
+  --fs-h1: clamp(26px, 2vw + 14px, 34px);              /* page title (property name) */
+  --fs-h2: clamp(24px, 1.2vw + 18px, 32px);            /* section heading */
+  --fs-h3: clamp(20px, 0.5vw + 17.5px, 22px);          /* sub-section / sheet title */
+  --fs-h4: clamp(17px, 0.3vw + 16px, 18px);            /* card title */
+  --fs-body-lg: clamp(16px, 0.4vw + 14.5px, 18px);     /* lede / about copy */
+  --fs-body: clamp(15px, 0.2vw + 14.3px, 16px);        /* paragraphs */
+  --fs-body-sm: clamp(13.5px, 0.15vw + 13px, 14px);    /* UI text, secondary copy */
+  --fs-meta: clamp(12.5px, 0.1vw + 12.2px, 13px);      /* metadata, hints, sub-lines */
+  --fs-caption: 12px;                                   /* badges, pills, tiny status */
+  --fs-eyebrow: clamp(11px, 0.1vw + 10.7px, 12px);     /* labels, small caps */
+  --fs-button: clamp(14.5px, 0.2vw + 14px, 16px);      /* CTA / action labels */
+  --fs-nav: var(--fs-body-sm);                          /* header + menu */
+  --fs-price: clamp(18px, 0.5vw + 16.2px, 22px);         /* rent in cards, sticky bar */
+  --fs-price-lg: clamp(24px, 1vw + 20.5px, 30px);      /* rent in room cards, action module */
+
+  --lh-display: 1.05;
+  --lh-h1: 1.12;
+  --lh-h2: 1.18;
+  --lh-h3: 1.22;
+  --lh-h4: 1.28;
+  --lh-body: 1.6;
+  --lh-body-sm: 1.5;
+  --lh-meta: 1.4;
+  --lh-button: 1.2;
 
   --tracking-heading: -0.02em;
   --tracking-display: -0.035em;

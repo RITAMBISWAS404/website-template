@@ -7,8 +7,9 @@
 [data-theme='essential'] {
   --font-sans: 'Figtree', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  --text-display: clamp(32px, 4vw + 8px, 56px);
-  --text-heading: clamp(26px, 2vw + 14px, 30px);
+  --fs-display: clamp(32px, 3.6vw + 8px, 54px);
+  --fs-h2: clamp(23px, 1vw + 18px, 30px);
+  --fs-h1: clamp(26px, 1.6vw + 15px, 32px);
   --tracking-heading: -0.015em;
   --tracking-display: -0.025em;
 
@@ -33,14 +34,14 @@
 [data-theme='essential'] .hero__title { font-weight: 700; }
 
 /* Cards: flat, quiet labels, no image zoom */
-[data-theme='essential'] .pcard__type { text-transform: none; letter-spacing: 0; font-size: 13px; font-weight: 600; color: var(--color-text-muted); }
+[data-theme='essential'] .pcard__type { text-transform: none; letter-spacing: 0; font-size: var(--fs-meta); font-weight: 600; color: var(--color-text-muted); }
 [data-theme='essential'] .pcard__type::before { display: none; }
 @media (hover: hover) and (pointer: fine) {
   [data-theme='essential'] .pcard:hover .pcard__slide img { transform: none; }
 }
 
 /* Brand, the functional way: small labels, metadata, icons, quiet dividers */
-[data-theme='essential'] .sh__meta { font-size: 12px; letter-spacing: 0.08em; }
+[data-theme='essential'] .sh__meta { letter-spacing: 0.08em; }
 [data-theme='essential'] .pcard__type { color: var(--color-accent-ink); }
 [data-theme='essential'] .pcard__foot { border-top-color: var(--color-accent-soft); }
 [data-theme='essential'] .pcard__price strong { color: var(--color-text); }
