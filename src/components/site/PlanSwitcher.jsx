@@ -9,8 +9,8 @@ const EXPERIMENT_THEMES = THEMES.filter((t) => t.id !== 'default');
 const BASE = THEMES.find((t) => t.id === 'default').id;
 
 /**
- * Development-only preview control: one small flask button that opens a compact
- * Theme + Plan popover. Never shipped in production builds (`?theme=` still works there).
+ * Experimental preview control: one small flask button that opens a compact
+ * Theme + Plan popover. Enabled in production while the hosted site is used as a template/demo.
  */
 export default function PlanSwitcher() {
   const { plan, setPlan, theme, setTheme } = useSite();
@@ -32,8 +32,6 @@ export default function PlanSwitcher() {
       document.removeEventListener('keydown', onKey);
     };
   }, [open]);
-
-  if (!import.meta.env.DEV) return null;
 
   return (
     <div className="lab" ref={root}>

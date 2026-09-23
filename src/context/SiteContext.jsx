@@ -5,9 +5,8 @@ import { THEME_IDS } from '../lib/themes.js';
 
 const SiteContext = createContext(null);
 
-/** Dev-only plan override so Basic and Advanced can be compared quickly. */
+/** Plan override (?plan= or the experimental switcher) so Basic and Advanced can be compared quickly. */
 const readPlanOverride = () => {
-  if (!import.meta.env.DEV) return null;
   try {
     const fromUrl = new URLSearchParams(window.location.search).get('plan');
     if (PLANS.includes(fromUrl)) {
